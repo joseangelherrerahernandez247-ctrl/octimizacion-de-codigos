@@ -1,0 +1,35 @@
+# python_opt.py
+# Versión optimizada
+
+numeros = [3, -1, 0, 5, -7, 0, 2, 3, 3, -1, 5, 5, 5]
+
+# Contar frecuencias usando diccionario
+frecuencias = {}
+
+for num in numeros:
+    if num in frecuencias:
+        frecuencias[num] += 1
+    else:
+        frecuencias[num] = 1
+
+# Encontrar el modo
+modo = None
+max_cuenta = -1
+
+for valor, cuenta in frecuencias.items():
+    if cuenta > max_cuenta:
+        max_cuenta = cuenta
+        modo = valor
+
+# Suma de dígitos del modo
+x = abs(modo)
+suma_digitos = 0
+
+while x > 0:
+    suma_digitos += x % 10
+    x //= 10
+
+# Salidas
+print("Frecuencias:", frecuencias)
+print("Modo:", modo, "con cuenta:", max_cuenta)
+print("Suma de dígitos del modo:", suma_digitos)
