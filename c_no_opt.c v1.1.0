@@ -1,0 +1,52 @@
+/*
+   Avance 1 Equipo 9 
+   Se eliminan operaciones innecesarias y se simplifica la lógica,
+   pero se mantiene el mismo método básico para encontrar números primos.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int N = 1000; /* ejemplo; en práctica puede leerse desde stdin */
+    int count_primos = 0;
+    long long suma_primos = 0;
+    int primos_pares = 0;
+    int primos_impares = 0;
+
+    for (int m = 2; m <= N; m++) {
+
+        int es_primo = 1;
+        int d = 2;
+
+        /* comprobación básica de divisores */
+        while (d < m) {
+
+            if (m % d == 0) {
+                es_primo = 0;
+            }
+
+            d++;
+        }
+
+        if (es_primo == 1) {
+
+            count_primos++;
+            suma_primos += m;
+
+            if (m % 2 == 0) {
+                primos_pares++;
+            } else {
+                primos_impares++;
+            }
+        }
+    }
+
+    printf("Primos encontrados: %d\n", count_primos);
+    printf("Suma de primos: %lld\n", suma_primos);
+    printf("Primos pares: %d\n", primos_pares);
+    printf("Primos impares: %d\n", primos_impares);
+
+    return 0;
+}
