@@ -2,6 +2,13 @@
    Avance 1 Equipo 9 - Versión optimizada
    Se reducen iteraciones usando raíz cuadrada
    y se detiene la búsqueda cuando se encuentra divisor.
+jose angel herrera hernandez 13/03/2026
+cambios 
+while (d < m) → for (d * d <= m)
+
+Se agregó break para detener la búsqueda de divisores.
+
+Se corrigió la lógica de primos pares (solo el 2 es primo par).
 */
 
 #include <stdio.h>
