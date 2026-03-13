@@ -1,18 +1,43 @@
-# python_opt_v2.py
-# Versión más optimizada
-
-from collections import Counter
+# python_opt.py
+# Versión optimizada
+jose angel herrera hernandez 13/03/2026
+cambios 
+ Antes                     | Ahora              
+ ------------------------- | ------------------ 
+ Complejidad **O(n²)**     | **O(n)**           
+ Búsqueda lineal en lista  | Diccionario (hash) 
+ Dos recorridos por número | Solo **uno**       
+ Código redundante         | Código limpio      
 
 numeros = [3, -1, 0, 5, -7, 0, 2, 3, 3, -1, 5, 5, 5]
 
-# Contar frecuencias
-frecuencias = Counter(numeros)
+# Contar frecuencias en una sola pasada
+frecuencias = {}
+
+for num in numeros:
+    if num in frecuencias:
+        frecuencias[num] += 1
+    else:
+        frecuencias[num] = 1
 
 # Encontrar el modo
-modo, max_cuenta = max(frecuencias.items(), key=lambda x: x[1])
+modo = None
+max_cuenta = -1
+
+for valor, cuenta in frecuencias.items():
+    if cuenta > max_cuenta:
+        max_cuenta = cuenta
+        modo = valor
 
 # Suma de dígitos del modo
-suma_digitos = sum(int(d) for d in str(abs(modo)))
+x = modo
+if x < 0:
+    x = -x
+
+suma_digitos = 0
+while x > 0:
+    suma_digitos += x % 10
+    x //= 10
 
 # Salidas
 print("Frecuencias:", frecuencias)
