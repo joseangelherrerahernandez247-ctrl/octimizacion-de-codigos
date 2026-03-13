@@ -1,0 +1,20 @@
+# python_opt_v2.py
+# Versión más optimizada
+
+from collections import Counter
+
+numeros = [3, -1, 0, 5, -7, 0, 2, 3, 3, -1, 5, 5, 5]
+
+# Contar frecuencias
+frecuencias = Counter(numeros)
+
+# Encontrar el modo
+modo, max_cuenta = max(frecuencias.items(), key=lambda x: x[1])
+
+# Suma de dígitos del modo
+suma_digitos = sum(int(d) for d in str(abs(modo)))
+
+# Salidas
+print("Frecuencias:", frecuencias)
+print("Modo:", modo, "con cuenta:", max_cuenta)
+print("Suma de dígitos del modo:", suma_digitos)
